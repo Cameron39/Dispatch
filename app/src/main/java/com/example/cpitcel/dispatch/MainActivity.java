@@ -7,10 +7,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.util.Log;
-import android.widget.ListAdapter;
+import android.widget.CompoundButton;
+import android.widget.ListView;
+import android.widget.ToggleButton;
 
-public class MainActivity extends ListActivity {
+public class MainActivity extends ListActivity implements CompoundButton.OnCheckedChangeListener {
 
     private static final String[] users = {"Doug","Bill", "Matt","Chris", "Shaq","Nathan","Tim",
                                             "Alex","Brandon"};
@@ -20,9 +21,36 @@ public class MainActivity extends ListActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activitymain);
-        Log.i(tag, "onCreate");
-        setListAdapter(new RowAdapter());
+
+        RowAdapter myRA = new RowAdapter();
+        setListAdapter(myRA);
     }
+
+    //TODO: If the userStatus = Gone, then enable the goneRange
+    //TODO: If the goneRange = Half, enable the swAMPM
+    public void goneClick(View theView) {
+        Log.i(tag, "Click 1");
+        //View myView = theView;
+        //RowView theRow = (RowView) myView.getTag();
+        //theRow.goneRange.setEnabled(theRow.goneRange.isEnabled());
+    }
+
+   //not getting in here
+    public void OnCheckedChangeListener(CompoundButton button, Boolean isChecked){
+        //View myView = theView;
+       //RowView theRow = (RowView) myView.getTag();
+
+
+        //Make Changes
+    }
+
+    
+
+    @Override
+    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+        Log.i(tag, "Click 0");
+    }
+
 
     public class RowAdapter extends ArrayAdapter<String> {
         RowAdapter() {
@@ -47,7 +75,7 @@ public class MainActivity extends ListActivity {
             //Assign values for theRow
             theRow.userName.setText(users[position]);
 
-            return theView;
+            return myView;
         }
     }
 }
