@@ -33,12 +33,11 @@ public class MainActivity extends ListActivity {
         setListAdapter(myRA);
     }
 
-    //TODO: If the goneRange = Half, enable the swAMPM
-    //TODO: Transition the gone status button AND AM/PM switch to spinner
     //TODO: Status button text: Here or Gone for
     //TODO: Spinner height
     //TODO: Button width
     //TODO: Adjust name width/text size
+    //TODO: Why is the spinner still clickable?
     public class RowAdapter extends ArrayAdapter<String> {
         RowAdapter() {
             super(MainActivity.this, R.layout.myrow, users);
