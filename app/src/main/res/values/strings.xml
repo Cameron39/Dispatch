@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Dispatch</string>
+    <string-array name="goneOptionsSA">
+        <item>All Day</item>
+        <item>Morning</item>
+        <item>Afternoon</item>
+        <item>Randomish</item>
+    </string-array>
 </resources>

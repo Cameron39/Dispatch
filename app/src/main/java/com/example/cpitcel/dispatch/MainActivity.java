@@ -9,9 +9,12 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.CompoundButton;
 import android.widget.ListView;
+import android.widget.Spinner;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.ToggleButton;
+
+import java.lang.reflect.Array;
 
 public class MainActivity extends ListActivity {
 
@@ -20,7 +23,6 @@ public class MainActivity extends ListActivity {
     private static final String tag = "Dev:";
 
     RowView theRow; //Needs to be global. Other option is final, which will not work
-    //WORKING!  Making change to commit!
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +36,9 @@ public class MainActivity extends ListActivity {
     //TODO: If the goneRange = Half, enable the swAMPM
     //TODO: Transition the gone status button AND AM/PM switch to spinner
     //TODO: Status button text: Here or Gone for
-    //TODO: Spinner options: All day, Morning, Afternoon, Random
+    //TODO: Spinner height
+    //TODO: Button width
+    //TODO: Adjust name width/text size
     public class RowAdapter extends ArrayAdapter<String> {
         RowAdapter() {
             super(MainActivity.this, R.layout.myrow, users);
@@ -59,16 +63,17 @@ public class MainActivity extends ListActivity {
             //Cannot use theRow directly, else will only work for the last row
             TextView theName = theRow.userName;
             ToggleButton userStatus = theRow.userStatus;
-            final ToggleButton goneStatus = theRow.goneRange;
-            Switch AMPM = theRow.AMorPM;
+            final Spinner goneOptions = theRow.goneOption;
 
             theName.setText(users[position]);
+            goneOptions.setClickable(false);
 
             userStatus.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    goneStatus.setEnabled(!goneStatus.isEnabled());
-                    Log.i(tag, "Click 5");
+                    //goneStatus.setEnabled(!goneStatus.isEnabled());
+                    goneOptions.setClickable(!goneOptions.isClickable());
+                    Log.i(tag, "Update to spinner: " + goneOptions.isClickable());
 
                 }
             });

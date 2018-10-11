@@ -1,56 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:id="@+id/relativeLayout">
 
     <TextView
         android:id="@+id/txtName"
         android:layout_width="69dp"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
         android:layout_marginStart="9dp"
-        android:layout_marginTop="21dp"
-        android:layout_marginEnd="8dp"
-        android:layout_toStartOf="@+id/btnStatus"
-        android:text="TextView" />
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="3dp"
+        android:text="TextView"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btnStatus" />
 
     <ToggleButton
         android:id="@+id/btnStatus"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/swAMPM"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="3dp"
-        android:layout_marginTop="7dp"
-        android:layout_marginEnd="16dp"
-        android:layout_toStartOf="@+id/btnOff"
-        android:text="ToggleButton" />
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="20dp"
+        android:textOn="Gone for"
+        android:textOff="Here "
+        app:layout_constraintEnd_toStartOf="@+id/goneOptions"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <ToggleButton
-        android:id="@+id/btnOff"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="3dp"
-        android:layout_marginTop="7dp"
-        android:layout_marginEnd="14dp"
-        android:layout_marginBottom="3dp"
-        android:layout_toStartOf="@+id/swAMPM"
-        android:enabled="false"
-        android:text="ToggleButton" />
+    <Spinner
+        android:id="@+id/goneOptions"
+        android:layout_width="134dp"
+        android:layout_height="19dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="8dp"
+        android:entries="@array/goneOptionsSA"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <Switch
-        android:id="@+id/swAMPM"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="3dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="2dp"
-        android:enabled="false"
-        android:text="Switch" />
-</RelativeLayout>
+</android.support.constraint.ConstraintLayout>
