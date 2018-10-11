@@ -20,6 +20,7 @@ public class MainActivity extends ListActivity {
     private static final String tag = "Dev:";
 
     RowView theRow; //Needs to be global. Other option is final, which will not work
+    //WORKING!  Making change to commit!
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
