@@ -9,13 +9,17 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.CompoundButton;
 import android.widget.ListView;
+import android.widget.Switch;
+import android.widget.TextView;
 import android.widget.ToggleButton;
 
-public class MainActivity extends ListActivity implements CompoundButton.OnCheckedChangeListener {
+public class MainActivity extends ListActivity {
 
     private static final String[] users = {"Doug","Bill", "Matt","Chris", "Shaq","Nathan","Tim",
                                             "Alex","Brandon"};
     private static final String tag = "Dev:";
+
+    RowView theRow; //Needs to be global. Other option is final, which will not work
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,29 +39,12 @@ public class MainActivity extends ListActivity implements CompoundButton.OnCheck
         //theRow.goneRange.setEnabled(theRow.goneRange.isEnabled());
     }
 
-   //not getting in here
-    public void OnCheckedChangeListener(CompoundButton button, Boolean isChecked){
-        //View myView = theView;
-       //RowView theRow = (RowView) myView.getTag();
-
-
-        //Make Changes
-    }
-
-    
-
-    @Override
-    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-        Log.i(tag, "Click 0");
-    }
-
-
     public class RowAdapter extends ArrayAdapter<String> {
         RowAdapter() {
             super(MainActivity.this, R.layout.myrow, users);
         }
 
-        public View getView(int position, View theView, ViewGroup parentView){
+        public View getView(final int position, View theView, ViewGroup parentView){
             View myView = theView;
 
             if (myView == null) { //only do if it does not exist, so no resource wasting
@@ -65,7 +52,7 @@ public class MainActivity extends ListActivity implements CompoundButton.OnCheck
                 myView = inflaterator.inflate(R.layout.myrow, parentView, false);
             }
 
-            RowView theRow = (RowView) myView.getTag();
+            theRow = (RowView) myView.getTag();
 
             if (theRow == null){
                 theRow = new RowView(myView);
@@ -73,7 +60,23 @@ public class MainActivity extends ListActivity implements CompoundButton.OnCheck
             }
 
             //Assign values for theRow
-            theRow.userName.setText(users[position]);
+            TextView theName = theRow.userName;
+            ToggleButton userStatus = theRow.userStatus;
+            final ToggleButton goneStatus = theRow.goneRange;
+            Switch AMPM = theRow.AMorPM;
+
+            theName.setText(users[position]);
+
+            userStatus.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Log.i(tag, "Click 4");
+                    //theRow.goneRange.setEnabled(!theRow.goneRange.isEnabled());
+                    goneStatus.setEnabled(!goneStatus.isEnabled());
+                    Log.i(tag, "Click 5");
+
+                }
+            });
 
             return myView;
         }
