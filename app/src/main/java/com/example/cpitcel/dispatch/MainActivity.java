@@ -30,10 +30,15 @@ public class MainActivity extends ListActivity {
         setListAdapter(myRA);
     }
 
+    //TODO: If the userStatus = Gone, then enable the goneRange
     //TODO: If the goneRange = Half, enable the swAMPM
-    //TODO: Transition the gone status button AND AM/PM switch to spinner
-    //TODO: Status button text: Here or Gone for
-    //TODO: Spinner options: All day, Morning, Afternoon, Random
+    public void goneClick(View theView) {
+        Log.i(tag, "Click 1");
+        //View myView = theView;
+        //RowView theRow = (RowView) myView.getTag();
+        //theRow.goneRange.setEnabled(theRow.goneRange.isEnabled());
+    }
+
     public class RowAdapter extends ArrayAdapter<String> {
         RowAdapter() {
             super(MainActivity.this, R.layout.myrow, users);
@@ -55,7 +60,6 @@ public class MainActivity extends ListActivity {
             }
 
             //Assign values for theRow
-            //Cannot use theRow directly, else will only work for the last row
             TextView theName = theRow.userName;
             ToggleButton userStatus = theRow.userStatus;
             final ToggleButton goneStatus = theRow.goneRange;
@@ -66,6 +70,8 @@ public class MainActivity extends ListActivity {
             userStatus.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    Log.i(tag, "Click 4");
+                    //theRow.goneRange.setEnabled(!theRow.goneRange.isEnabled());
                     goneStatus.setEnabled(!goneStatus.isEnabled());
                     Log.i(tag, "Click 5");
 
