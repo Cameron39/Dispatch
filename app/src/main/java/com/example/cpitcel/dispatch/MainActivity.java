@@ -1,4 +1,5 @@
-//CREDIT TO https://github.com/Angads25/android-toggle
+//CREDIT TO https://github.com/llollox/Android-Toggle-Switch
+//Other possible: https://github.com/Angads25/android-toggle
 
 package com.example.cpitcel.dispatch;
 
@@ -43,13 +44,9 @@ public class MainActivity extends ListActivity {
         swDesktop.setCheckedPosition(0);
         swMIS.setCheckedPosition(0);
 
-        swDesktop.setOnChangeListener(new ToggleSwitch.OnChangeListener() {
-            @Override
-            public void onToggleSwitchChanged(int i) {
-                //swDesktop.setCheckedPosition(Math.abs(i - 1));
-                Log.i(tag, "Switching the Desktop Support: " + i);
-            }
-        });
+
+
+
     }
 
     //TODO: Adjust name width/text size

@@ -26,6 +26,11 @@
         android:layout_marginBottom="24dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:uncheckedBackgroundColor="@color/gray"
+        app:uncheckedBorderColor="@color/gray"
+        app:checkedBackgroundColor="@color/blue"
+        app:checkedBorderColor="@color/gray_light"
+        app:borderWidth="1dp"
         app:textToggleLeft="Brandon"
         app:textToggleRight="Alex" />
 
@@ -40,6 +45,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.571"
         app:layout_constraintStart_toEndOf="@+id/swDesktop"
+        app:uncheckedBackgroundColor="@color/gray"
+        app:uncheckedBorderColor="@color/gray"
+        app:checkedBackgroundColor="@color/blue"
+        app:checkedBorderColor="@color/gray_light"
         app:textToggleLeft="Tim"
         app:textToggleRight="Nathan" />
 </android.support.constraint.ConstraintLayout>
