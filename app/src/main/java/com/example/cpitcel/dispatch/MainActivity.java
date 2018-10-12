@@ -37,15 +37,26 @@ public class MainActivity extends ListActivity {
         RowAdapter myRA = new RowAdapter();
         setListAdapter(myRA);
 
-        ToggleSwitch swDesktop = findViewById(R.id.swDesktop);
+        final ToggleSwitch swDesktop = findViewById(R.id.swDesktop);
         ToggleSwitch swMIS = findViewById(R.id.swMIS);
 
         swDesktop.setCheckedPosition(0);
         swMIS.setCheckedPosition(0);
+
+        swDesktop.setOnChangeListener(new ToggleSwitch.OnChangeListener() {
+            @Override
+            public void onToggleSwitchChanged(int i) {
+                //swDesktop.setCheckedPosition(Math.abs(i - 1));
+                Log.i(tag, "Switching the Desktop Support: " + i);
+            }
+        });
     }
 
     //TODO: Adjust name width/text size
     //TODO: Reset the spinner when disabled. Set the value to be "blank", position 0
+    //TODO: for people gone, change their name to crossed out?
+    //MAYBE: if one of the people in thw switch is GONE, disable their part? Hmmmm....?
+    //  NO!  How the hell to deal with AM/PM? Not worth it!
     public class RowAdapter extends ArrayAdapter<String> {
         RowAdapter() {
             super(MainActivity.this, R.layout.myrow, users);
