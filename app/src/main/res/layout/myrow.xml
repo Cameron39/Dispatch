@@ -8,33 +8,35 @@
 
     <TextView
         android:id="@+id/txtName"
-        android:layout_width="69dp"
-        android:layout_height="wrap_content"
+        android:layout_width="101dp"
+        android:layout_height="30dp"
         android:layout_marginStart="9dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="12dp"
         android:layout_marginEnd="3dp"
         android:text="TextView"
-        app:layout_constraintTop_toTopOf="parent"
+        android:textAppearance="@android:style/TextAppearance.Material.Title"
+        app:layout_constraintEnd_toStartOf="@+id/btnStatus"
+        app:layout_constraintHorizontal_bias="0.411"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/btnStatus" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ToggleButton
         android:id="@+id/btnStatus"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="93dp"
+        android:layout_height="47dp"
         android:layout_marginTop="4dp"
         android:layout_marginEnd="20dp"
+        android:textOff=" Here "
         android:textOn="Gone for"
-        android:textOff="Here "
         app:layout_constraintEnd_toStartOf="@+id/goneOptions"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Spinner
         android:id="@+id/goneOptions"
-        android:layout_width="134dp"
-        android:layout_height="19dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="8dp"
+        android:layout_width="137dp"
+        android:layout_height="28dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="4dp"
         android:entries="@array/goneOptionsSA"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
