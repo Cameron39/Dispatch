@@ -86,9 +86,9 @@ public class MainActivity extends ListActivity {
                 @Override
                 public void onClick(View v) {
                     goneOptions.setEnabled(!goneOptions.isEnabled());
-                    //if (!goneOptions.isEnabled()) {
-                    //    goneOptions.setSelection(0,true);
-                    //}
+                    if (!goneOptions.isEnabled()) {
+                        goneOptions.setSelection(0,true);
+                    }
                 }
             });
 
