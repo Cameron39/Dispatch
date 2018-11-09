@@ -1,5 +1,8 @@
 <resources>
     <string name="app_name">Dispatch</string>
+    <string name="DS">Desktop Next</string>
+    <string name="MIS">MIS Next</string>
+    <string name="ListName">UserList</string>
     <string-array name="goneOptionsSA">
         <item>       </item>
         <item>All Day</item>

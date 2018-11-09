@@ -1,38 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:theme="@style/AppTheme">
 
     <ListView
-        android:id="@android:id/list"
+        android:id="@id/android:list"
         android:layout_width="fill_parent"
-        android:layout_height="486dp"
+        android:layout_height="402dp"
         android:layout_margin="5dp"
         android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/swDesktop"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <com.llollox.androidtoggleswitch.widgets.ToggleSwitch
         android:id="@+id/swDesktop"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="44dp"
+        android:layout_marginTop="8dp"
         android:layout_marginBottom="24dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:uncheckedBackgroundColor="@color/gray"
-        app:uncheckedBorderColor="@color/gray"
+        app:borderWidth="1dp"
         app:checkedBackgroundColor="@color/blue"
         app:checkedBorderColor="@color/gray_light"
-        app:borderWidth="1dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+
+        app:layout_constraintVertical_bias="1.0"
         app:textToggleLeft="Brandon"
-        app:textToggleRight="Alex" />
+        app:textToggleRight="Alex"
+        app:uncheckedBackgroundColor="@color/gray"
+        app:uncheckedBorderColor="@color/gray" />
 
     <com.llollox.androidtoggleswitch.widgets.ToggleSwitch
         android:id="@+id/swMIS"
@@ -41,14 +42,16 @@
         android:layout_marginStart="8dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="24dp"
+        app:checkedBackgroundColor="@color/blue"
+        app:checkedBorderColor="@color/gray_light"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.571"
         app:layout_constraintStart_toEndOf="@+id/swDesktop"
-        app:uncheckedBackgroundColor="@color/gray"
-        app:uncheckedBorderColor="@color/gray"
-        app:checkedBackgroundColor="@color/blue"
-        app:checkedBorderColor="@color/gray_light"
         app:textToggleLeft="Tim"
-        app:textToggleRight="Nathan" />
+        app:textToggleRight="Nathan"
+        app:uncheckedBackgroundColor="@color/gray"
+        app:uncheckedBorderColor="@color/gray" />
+
+
 </android.support.constraint.ConstraintLayout>

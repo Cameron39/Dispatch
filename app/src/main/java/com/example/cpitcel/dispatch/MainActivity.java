@@ -21,12 +21,13 @@ import android.widget.ToggleButton;
 import com.llollox.androidtoggleswitch.widgets.ToggleSwitch;
 
 import java.lang.reflect.Array;
+import java.util.List;
 
 public class MainActivity extends ListActivity {
 
     private static final String[] users = {"Doug","Bill", "Matt","Chris", "Shaq","Nathan","Tim",
                                             "Alex","Brandon"};
-    private static final String tag = "Dev:";
+    private static final String tag = "MAIN:";
 
     RowView theRow; //Needs to be global. Other option is final, which will not work
 
@@ -40,12 +41,10 @@ public class MainActivity extends ListActivity {
 
         final ToggleSwitch swDesktop = findViewById(R.id.swDesktop);
         ToggleSwitch swMIS = findViewById(R.id.swMIS);
+        //ListView myList = findViewById(R.id.listView2);
 
         swDesktop.setCheckedPosition(0);
         swMIS.setCheckedPosition(0);
-
-
-
 
     }
 
@@ -87,6 +86,9 @@ public class MainActivity extends ListActivity {
                 @Override
                 public void onClick(View v) {
                     goneOptions.setEnabled(!goneOptions.isEnabled());
+                    //if (!goneOptions.isEnabled()) {
+                    //    goneOptions.setSelection(0,true);
+                    //}
                 }
             });
 
