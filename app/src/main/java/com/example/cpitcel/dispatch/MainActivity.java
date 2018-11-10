@@ -4,12 +4,17 @@
 package com.example.cpitcel.dispatch;
 
 import android.app.ListActivity;
+import android.content.res.ColorStateList;
 import android.graphics.Color;
+import android.graphics.Paint;
+import android.graphics.Typeface;
 import android.os.Bundle;
+import android.support.v4.graphics.ColorUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.CompoundButton;
 import android.widget.ListView;
@@ -27,7 +32,7 @@ public class MainActivity extends ListActivity {
 
     private static final String[] users = {"Doug","Bill", "Matt","Chris", "Shaq","Nathan","Tim",
                                             "Alex","Brandon"};
-    private static final String tag = "MAIN:";
+    private static final String tag = "DISPATCH:";
 
     RowView theRow; //Needs to be global. Other option is final, which will not work
 
@@ -41,18 +46,12 @@ public class MainActivity extends ListActivity {
 
         final ToggleSwitch swDesktop = findViewById(R.id.swDesktop);
         ToggleSwitch swMIS = findViewById(R.id.swMIS);
-        //ListView myList = findViewById(R.id.listView2);
 
         swDesktop.setCheckedPosition(0);
         swMIS.setCheckedPosition(0);
 
     }
 
-    //TODO: Adjust name width/text size
-    //TODO: Reset the spinner when disabled. Set the value to be "blank", position 0
-    //TODO: for people gone, change their name to crossed out?
-    //MAYBE: if one of the people in thw switch is GONE, disable their part? Hmmmm....?
-    //  NO!  How the hell to deal with AM/PM? Not worth it!
     public class RowAdapter extends ArrayAdapter<String> {
         RowAdapter() {
             super(MainActivity.this, R.layout.myrow, users);
@@ -75,8 +74,8 @@ public class MainActivity extends ListActivity {
 
             //Assign values for theRow
             //Cannot use theRow directly, else will only work for the last row
-            TextView theName = theRow.userName;
-            ToggleButton userStatus = theRow.userStatus;
+            final TextView theName = theRow.userName;
+            final ToggleButton userStatus = theRow.userStatus;
             final Spinner goneOptions = theRow.goneOption; //final or global, pick one
 
             theName.setText(users[position]);
@@ -86,9 +85,44 @@ public class MainActivity extends ListActivity {
                 @Override
                 public void onClick(View v) {
                     goneOptions.setEnabled(!goneOptions.isEnabled());
-                    //if (!goneOptions.isEnabled()) {
-                    //    goneOptions.setSelection(0,true);
-                    //}
+                    if (!goneOptions.isEnabled()) {
+                        goneOptions.setSelection(0, true);
+                    } else {
+                        goneOptions.performClick();
+                    }
+                }
+            });
+
+            goneOptions.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                   switch (position) {
+                       case 0: //"Nothing"
+                           goneOptions.setBackgroundColor(Color.alpha(900));
+                           userStatus.setChecked(false);
+                           goneOptions.setEnabled(false);
+                           break;
+                       case 1: //All Day
+                           goneOptions.setBackgroundColor(Color.RED);
+                           break;
+                       case 2: //Morning
+                           goneOptions.setBackgroundColor(Color.argb(	255,255,140,0));
+                           break;
+                       case 3: //Afternoon
+                           goneOptions.setBackgroundColor(Color.MAGENTA);
+                           break;
+                       case 4: //Sporatic
+                           goneOptions.setBackgroundColor(Color.BLUE);
+                           break;
+                       default: //None
+                           goneOptions.setBackgroundColor(Color.alpha(900));
+                           break;
+                   }
+                }
+
+                @Override
+                public void onNothingSelected(AdapterView<?> parent) {
+
                 }
             });
 
