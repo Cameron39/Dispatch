@@ -28,6 +28,7 @@
         android:layout_marginEnd="20dp"
         android:textOff=" Here "
         android:textOn="Gone for"
+
         app:layout_constraintEnd_toStartOf="@+id/goneOptions"
         app:layout_constraintTop_toTopOf="parent" />
 
